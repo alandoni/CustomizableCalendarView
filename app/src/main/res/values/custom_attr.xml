@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CustomizableCalendarView">
+        <attr name="showNameOfWeekDays" format="boolean" />
+        <attr name="showWeekends" format="boolean" />
+        <attr name="fillHeight" format="boolean" />
+    </declare-styleable>
+</resources>

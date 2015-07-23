@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CustomizableCalendarView</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+
+    <string-array name="days_of_week">
+        <item>Dom</item>
+        <item>Seg</item>
+        <item>Ter</item>
+        <item>Qua</item>
+        <item>Qui</item>
+        <item>Sex</item>
+        <item>Sab</item>
+    </string-array>
+</resources>
