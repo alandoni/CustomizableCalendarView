@@ -1,7 +1,7 @@
 # CustomizableCalendarView
 An Android CalendarView totally customizable
 
-This calendar is a GridView that receives an CalendarAdapter to be totally customizable
+This calendar is a GridView that receives an CalendarAdapter that could be extended to show what you want in each cell...
 
 Use this code to insert the calendar in your xml layout
 You can set width and height
