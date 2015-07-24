@@ -6,7 +6,7 @@ This calendar is a GridView that receives an CalendarAdapter to be totally custo
 Use this code to insert the calendar in your xml layout
 You can set width and height
 
-```
+``` xml
 <view
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -20,55 +20,55 @@ You can set width and height
 The default CalendarAdapter is not much pretty, so, let`s customize it
 
 First of all, make a class like the following below
-```
+``` java
 private class CustomCalendarAdapter extends CalendarAdapter {
 
-        @Override
-        public View getDayView(Date date, boolean isWithinCurrentMonth, boolean isWeekend, 
-                View convertView, ViewGroup parent) {
-            LayoutInflater inflater = (LayoutInflater) parent.getContext()
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.calendar_day_whiteview, null);
+    @Override
+    public View getDayView(Date date, boolean isWithinCurrentMonth, boolean isWeekend, 
+            View convertView, ViewGroup parent) {
+        LayoutInflater inflater = (LayoutInflater) parent.getContext()
+            .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        convertView = inflater.inflate(R.layout.calendar_day_whiteview, null);
 
-            TextView day = (TextView) convertView.findViewById(R.id.day);
-            day.setText(String.valueOf(date.getDate()));
+        TextView day = (TextView) convertView.findViewById(R.id.day);
+        day.setText(String.valueOf(date.getDate()));
 
-            if (!isWithinCurrentMonth) {
-                day.setTextColor(Color.parseColor("#aaaaaa"));
-            }
-
-            Date today = new Date();
-
-            if (date.getDate() == today.getDate() && date.getMonth() == today.getMonth() 
-                    && date.getYear() == today.getYear()) {
-                day.setBackgroundResource(R.drawable.today_background);
-                day.setTextColor(Color.parseColor("#ffffff"));
-            }
-
-            return convertView;
+        if (!isWithinCurrentMonth) {
+            day.setTextColor(Color.parseColor("#aaaaaa"));
         }
 
-        @Override
-        public View getNameOfWeekDaysView(int dayOfWeek, View convertView, ViewGroup parent) {
-            LayoutInflater inflater = (LayoutInflater) parent.getContext()
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.calendar_day_whiteview, null);
-            TextView day = (TextView) convertView.findViewById(R.id.day);
-            String[] array = day.getContext().getResources().getStringArray(R.array.days_of_week);
-            day.setText(array[dayOfWeek]);
-            return convertView;
+        Date today = new Date();
+
+        if (date.getDate() == today.getDate() && date.getMonth() == today.getMonth() 
+                && date.getYear() == today.getYear()) {
+            day.setBackgroundResource(R.drawable.today_background);
+            day.setTextColor(Color.parseColor("#ffffff"));
         }
+
+        return convertView;
     }
+
+    @Override
+    public View getNameOfWeekDaysView(int dayOfWeek, View convertView, ViewGroup parent) {
+        LayoutInflater inflater = (LayoutInflater) parent.getContext()
+            .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        convertView = inflater.inflate(R.layout.calendar_day_whiteview, null);
+        TextView day = (TextView) convertView.findViewById(R.id.day);
+        String[] array = day.getContext().getResources().getStringArray(R.array.days_of_week);
+        day.setText(array[dayOfWeek]);
+        return convertView;
+    }
+}
 ```
 
 Add this new adapter to your CustomizableCalendarView:
-````
+``` java
 CustomizableCalendarView calendar = (CustomizableCalendarView) findViewById(R.id.calendar);
 calendar.setAdapter(new CustomCalendarAdapter());
 ````
 
-And in calendar_day_whiteview.xml:
-```
+And in calendar_day_whiteview.xml, a simple textview to show the date:
+``` xml
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -87,7 +87,7 @@ And in calendar_day_whiteview.xml:
 ```
 
 I've created a drawable to mark the current day, it is:
-```
+``` xml
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="#ff2c7d81"/>
     <corners android:radius="80dip"/>
