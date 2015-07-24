@@ -153,7 +153,10 @@ public class CalendarAdapter extends BaseAdapter {
         try {
             String[] array = day.getContext().getResources().getStringArray(R.array.days_of_week);
             day.setText(array[dayOfWeek]);
-        } catch (Exception e) { }
+        } catch (Exception e) {
+            String[] array = {"S", "M", "T", "W", "T", "F", "S"};
+            day.setText(array[dayOfWeek]);
+        }
 
         return convertView;
     }
@@ -184,17 +187,14 @@ public class CalendarAdapter extends BaseAdapter {
 
     protected final void setShowNameOfWeekDays(boolean showNameOfWeekDays) {
         mShowNameOfWeekDays = showNameOfWeekDays;
-        setDate(mCurrentDate);
     }
 
     protected final void setShowWeekends(boolean showWeekends) {
         mShowWeekends = showWeekends;
-        setDate(mCurrentDate);
     }
 
     protected final void setFillHeight(boolean fillHeight) {
         this.mFillHeight = fillHeight;
-        setDate(mCurrentDate);
     }
 
     protected final int getHeightOfDayNamesView() {

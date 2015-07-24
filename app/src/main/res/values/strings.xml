@@ -5,12 +5,12 @@
     <string name="action_settings">Settings</string>
 
     <string-array name="days_of_week">
-        <item>Dom</item>
-        <item>Seg</item>
-        <item>Ter</item>
-        <item>Qua</item>
-        <item>Qui</item>
-        <item>Sex</item>
-        <item>Sab</item>
+        <item>S</item>
+        <item>M</item>
+        <item>T</item>
+        <item>W</item>
+        <item>T</item>
+        <item>F</item>
+        <item>S</item>
     </string-array>
 </resources>

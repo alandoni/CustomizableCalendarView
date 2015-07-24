@@ -61,11 +61,11 @@ public class CustomizableCalendarView extends GridView implements AdapterView.On
     public final void setAdapter(CalendarAdapter adapter) {
         if (adapter instanceof CalendarAdapter) {
             mAdapter = adapter;
-            mAdapter.setDate(mCurrentDate);
-            super.setAdapter(mAdapter);
             setShowNameOfWeekDays(mShowNameOfWeekDays);
             setShowWeekends(mShowWeekends);
             setFillHeight(mFillHeight);
+            mAdapter.setDate(mCurrentDate);
+            super.setAdapter(mAdapter);
         }
     }
 
@@ -90,17 +90,20 @@ public class CustomizableCalendarView extends GridView implements AdapterView.On
     public void setShowNameOfWeekDays(boolean showNameOfWeekDays) {
         mShowNameOfWeekDays = showNameOfWeekDays;
         mAdapter.setShowNameOfWeekDays(mShowNameOfWeekDays);
+        mAdapter.setDate(mCurrentDate);
     }
 
     public void setShowWeekends(boolean showWeekends) {
         mShowWeekends = showWeekends;
         setNumColumns(5);
         mAdapter.setShowWeekends(mShowWeekends);
+        mAdapter.setDate(mCurrentDate);
     }
 
     public void setFillHeight(boolean fillHeight) {
         mFillHeight = fillHeight;
         mAdapter.setFillHeight(fillHeight);
+        mAdapter.setDate(mCurrentDate);
     }
 
     protected final void setHeightOfCells() {
